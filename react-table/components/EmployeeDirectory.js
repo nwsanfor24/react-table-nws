@@ -39,3 +39,39 @@ const rows = [
     createData('Creed Bratton', 'Unknown', 'Feb 8th, 1943', 'Playing guitar')
 ];
 
+const useStyles = makeStyles({
+    table: {
+        minWidth: 700,
+    },
+});
+
+export default function EmployeeDirectory() {
+    const classes = useStyles();
+
+    return(
+        <TableContainer component={Paper}>
+            <Table className={classes.table} aria-label="customized table">
+                <TableHead>
+                    <TableRow>
+                        <StyledTableCell>Employees</StyledTableCell>
+                        <StyledTableCell align="right">Role</StyledTableCell>
+                        <StyledTableCell align="right">Date of Birth</StyledTableCell>
+                        <StyledTableCell align="right">Hobby</StyledTableCell>
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {rows.map((row) => (
+                        <StyledTableRow key={row.name}>
+                            <StyledTableCell component="th" scope="row">
+                                {row.name}
+                            </StyledTableCell>
+                            <StyledTableCell align="right">{row.role}</StyledTableCell>
+                            <StyledTableCell align="right">{row.DOB}</StyledTableCell>
+                            <StyledTableCell align="right">{row.hobby}</StyledTableCell>
+                        </StyledTableRow>
+                    ))}
+                </TableBody>
+            </Table>
+        </TableContainer>
+    );
+}
