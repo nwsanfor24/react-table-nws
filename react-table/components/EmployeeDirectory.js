@@ -26,3 +26,7 @@ const StyledTableRow = withStyles((theme) => ({
     },
 }))(TableRow);
 
+function createData(name, role, DOB, hobby) {
+    return { name, role, DOB, hobby }
+}
+
